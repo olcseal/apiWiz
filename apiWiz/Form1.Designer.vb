@@ -30,15 +30,18 @@ Partial Class Form1
         Me.tokenTextBox = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.apiInfoGbox = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.lblApi = New System.Windows.Forms.Label()
-        Me.lblApiVersion = New System.Windows.Forms.Label()
-        Me.lblSpBuild = New System.Windows.Forms.Label()
         Me.lblSpVersion = New System.Windows.Forms.Label()
+        Me.lblSpBuild = New System.Windows.Forms.Label()
+        Me.lblApiVersion = New System.Windows.Forms.Label()
+        Me.lblApi = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbLinks = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.apiInfoGbox.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox2
@@ -52,9 +55,10 @@ Partial Class Form1
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 122)
+        Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(776, 468)
+        Me.RichTextBox1.Size = New System.Drawing.Size(776, 460)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
@@ -117,59 +121,14 @@ Partial Class Form1
         Me.apiInfoGbox.Text = "API Info"
         Me.apiInfoGbox.Visible = False
         '
-        'Label3
+        'lblSpVersion
         '
-        Me.Label3.Location = New System.Drawing.Point(6, 23)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 13)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "api:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(7, 40)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 13)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "api version:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label5
-        '
-        Me.Label5.Location = New System.Drawing.Point(7, 57)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 13)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "sp build:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label6
-        '
-        Me.Label6.Location = New System.Drawing.Point(7, 74)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(65, 13)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "sp version:"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblApi
-        '
-        Me.lblApi.AutoSize = True
-        Me.lblApi.Location = New System.Drawing.Point(78, 23)
-        Me.lblApi.Name = "lblApi"
-        Me.lblApi.Size = New System.Drawing.Size(24, 13)
-        Me.lblApi.TabIndex = 4
-        Me.lblApi.Text = "text"
-        '
-        'lblApiVersion
-        '
-        Me.lblApiVersion.AutoSize = True
-        Me.lblApiVersion.Location = New System.Drawing.Point(79, 40)
-        Me.lblApiVersion.Name = "lblApiVersion"
-        Me.lblApiVersion.Size = New System.Drawing.Size(24, 13)
-        Me.lblApiVersion.TabIndex = 5
-        Me.lblApiVersion.Text = "text"
+        Me.lblSpVersion.AutoSize = True
+        Me.lblSpVersion.Location = New System.Drawing.Point(79, 74)
+        Me.lblSpVersion.Name = "lblSpVersion"
+        Me.lblSpVersion.Size = New System.Drawing.Size(24, 13)
+        Me.lblSpVersion.TabIndex = 7
+        Me.lblSpVersion.Text = "text"
         '
         'lblSpBuild
         '
@@ -180,32 +139,96 @@ Partial Class Form1
         Me.lblSpBuild.TabIndex = 6
         Me.lblSpBuild.Text = "text"
         '
-        'lblSpVersion
+        'lblApiVersion
         '
-        Me.lblSpVersion.AutoSize = True
-        Me.lblSpVersion.Location = New System.Drawing.Point(79, 74)
-        Me.lblSpVersion.Name = "lblSpVersion"
-        Me.lblSpVersion.Size = New System.Drawing.Size(24, 13)
-        Me.lblSpVersion.TabIndex = 7
-        Me.lblSpVersion.Text = "text"
+        Me.lblApiVersion.AutoSize = True
+        Me.lblApiVersion.Location = New System.Drawing.Point(79, 40)
+        Me.lblApiVersion.Name = "lblApiVersion"
+        Me.lblApiVersion.Size = New System.Drawing.Size(24, 13)
+        Me.lblApiVersion.TabIndex = 5
+        Me.lblApiVersion.Text = "text"
+        '
+        'lblApi
+        '
+        Me.lblApi.AutoSize = True
+        Me.lblApi.Location = New System.Drawing.Point(78, 23)
+        Me.lblApi.Name = "lblApi"
+        Me.lblApi.Size = New System.Drawing.Size(24, 13)
+        Me.lblApi.TabIndex = 4
+        Me.lblApi.Text = "text"
+        '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(7, 74)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(65, 13)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "sp version:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(7, 57)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(65, 13)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "sp build:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(7, 40)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(65, 13)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "api version:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(6, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(65, 13)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "api:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmbLinks
+        '
+        Me.cmbLinks.FormattingEnabled = True
+        Me.cmbLinks.Location = New System.Drawing.Point(302, 28)
+        Me.cmbLinks.Name = "cmbLinks"
+        Me.cmbLinks.Size = New System.Drawing.Size(276, 21)
+        Me.cmbLinks.TabIndex = 9
+        Me.cmbLinks.Visible = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.RichTextBox1)
+        Me.Panel1.Location = New System.Drawing.Point(12, 130)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(776, 460)
+        Me.Panel1.TabIndex = 11
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 602)
+        Me.ClientSize = New System.Drawing.Size(799, 599)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.cmbLinks)
         Me.Controls.Add(Me.apiInfoGbox)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.tokenTextBox)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.urlTextBox)
-        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.TextBox2)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.apiInfoGbox.ResumeLayout(False)
         Me.apiInfoGbox.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -226,4 +249,6 @@ Partial Class Form1
     Friend WithEvents lblSpBuild As Label
     Friend WithEvents lblApiVersion As Label
     Friend WithEvents lblApi As Label
+    Friend WithEvents cmbLinks As ComboBox
+    Friend WithEvents Panel1 As Panel
 End Class
