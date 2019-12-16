@@ -5,6 +5,7 @@ Imports Newtonsoft.Json
 Public Class Form1
     Public endpointDict As Dictionary(Of String, String)
     Public metaDict As Dictionary(Of String, String)
+    Public responseFromServer As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Bypass SSL Cert Validation
@@ -25,11 +26,10 @@ Public Class Form1
             TextBox2.Text = CType(response, HttpWebResponse).StatusDescription
             Dim dataStream As Stream = response.GetResponseStream()
             Dim reader As New StreamReader(dataStream)
-            Dim responseFromServer As String = reader.ReadToEnd()
+            responseFromServer = reader.ReadToEnd()
             Dim baseList = JsonConvert.DeserializeObject(Of Object)(responseFromServer)
             endpointDict = JsonConvert.DeserializeObject(Of Dictionary(Of String, String))(baseList("links").ToString)
             metaDict = JsonConvert.DeserializeObject(Of Dictionary(Of String, String))(baseList("meta").ToString)
-            'RichTextBox1.Text = responseFromServer
             reader.Close()
             response.Close()
         Catch ex As Exception
@@ -38,13 +38,24 @@ Public Class Form1
         For Each item In endpointDict
             cmbLinks.Items.Add(item.Key.ToString)
         Next
+        lblEndpoints.Visible = True
         cmbLinks.Visible = True
-        RichTextBox1.Text = "Endpoints loaded!"
-        lblApi.Text = metaDict("api")
-        lblApiVersion.Text = metaDict("api_version")
-        lblSpBuild.Text = metaDict("sp_build_id")
-        lblSpVersion.Text = metaDict("sp_version")
-        apiInfoGbox.Visible = True
+        ToolStripStatusLabel2.Text = "Endpoints loaded!"
+        ToolStripStatusLabel3.Text = "api: " + metaDict("api")
+        ToolStripStatusLabel3.Visible = True
+        ToolStripStatusLabel4.Text = "api ver: " + metaDict("api_version")
+        ToolStripStatusLabel4.Visible = True
+        ToolStripStatusLabel5.Text = "build: " + metaDict("sp_build_id")
+        ToolStripStatusLabel5.Visible = True
+        ToolStripStatusLabel6.Text = "sp ver: " + metaDict("sp_version")
+        ToolStripStatusLabel6.Visible = True
+        Dim currentCallReturn As New frmCallReturn
+        currentCallReturn.Text = urlTextBox.Text
+        currentCallReturn.SetCallReturn = responseFromServer
+        currentCallReturn.Show()
     End Sub
 
+    Private Sub cmbLinks_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbLinks.SelectedIndexChanged
+        urlTextBox.Text = endpointDict(cmbLinks.SelectedItem)
+    End Sub
 End Class

@@ -23,25 +23,21 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.urlTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tokenTextBox = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.apiInfoGbox = New System.Windows.Forms.GroupBox()
-        Me.lblSpVersion = New System.Windows.Forms.Label()
-        Me.lblSpBuild = New System.Windows.Forms.Label()
-        Me.lblApiVersion = New System.Windows.Forms.Label()
-        Me.lblApi = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbLinks = New System.Windows.Forms.ComboBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.apiInfoGbox.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.lblEndpoints = New System.Windows.Forms.Label()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel6 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox2
@@ -52,15 +48,6 @@ Partial Class Form1
         Me.TextBox2.Size = New System.Drawing.Size(44, 20)
         Me.TextBox2.TabIndex = 1
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(776, 460)
-        Me.RichTextBox1.TabIndex = 2
-        Me.RichTextBox1.Text = ""
         '
         'urlTextBox
         '
@@ -103,96 +90,6 @@ Partial Class Form1
         Me.Button1.Text = "Try"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'apiInfoGbox
-        '
-        Me.apiInfoGbox.Controls.Add(Me.lblSpVersion)
-        Me.apiInfoGbox.Controls.Add(Me.lblSpBuild)
-        Me.apiInfoGbox.Controls.Add(Me.lblApiVersion)
-        Me.apiInfoGbox.Controls.Add(Me.lblApi)
-        Me.apiInfoGbox.Controls.Add(Me.Label6)
-        Me.apiInfoGbox.Controls.Add(Me.Label5)
-        Me.apiInfoGbox.Controls.Add(Me.Label4)
-        Me.apiInfoGbox.Controls.Add(Me.Label3)
-        Me.apiInfoGbox.Location = New System.Drawing.Point(625, 12)
-        Me.apiInfoGbox.Name = "apiInfoGbox"
-        Me.apiInfoGbox.Size = New System.Drawing.Size(163, 101)
-        Me.apiInfoGbox.TabIndex = 8
-        Me.apiInfoGbox.TabStop = False
-        Me.apiInfoGbox.Text = "API Info"
-        Me.apiInfoGbox.Visible = False
-        '
-        'lblSpVersion
-        '
-        Me.lblSpVersion.AutoSize = True
-        Me.lblSpVersion.Location = New System.Drawing.Point(79, 74)
-        Me.lblSpVersion.Name = "lblSpVersion"
-        Me.lblSpVersion.Size = New System.Drawing.Size(24, 13)
-        Me.lblSpVersion.TabIndex = 7
-        Me.lblSpVersion.Text = "text"
-        '
-        'lblSpBuild
-        '
-        Me.lblSpBuild.AutoSize = True
-        Me.lblSpBuild.Location = New System.Drawing.Point(79, 57)
-        Me.lblSpBuild.Name = "lblSpBuild"
-        Me.lblSpBuild.Size = New System.Drawing.Size(24, 13)
-        Me.lblSpBuild.TabIndex = 6
-        Me.lblSpBuild.Text = "text"
-        '
-        'lblApiVersion
-        '
-        Me.lblApiVersion.AutoSize = True
-        Me.lblApiVersion.Location = New System.Drawing.Point(79, 40)
-        Me.lblApiVersion.Name = "lblApiVersion"
-        Me.lblApiVersion.Size = New System.Drawing.Size(24, 13)
-        Me.lblApiVersion.TabIndex = 5
-        Me.lblApiVersion.Text = "text"
-        '
-        'lblApi
-        '
-        Me.lblApi.AutoSize = True
-        Me.lblApi.Location = New System.Drawing.Point(78, 23)
-        Me.lblApi.Name = "lblApi"
-        Me.lblApi.Size = New System.Drawing.Size(24, 13)
-        Me.lblApi.TabIndex = 4
-        Me.lblApi.Text = "text"
-        '
-        'Label6
-        '
-        Me.Label6.Location = New System.Drawing.Point(7, 74)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(65, 13)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "sp version:"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label5
-        '
-        Me.Label5.Location = New System.Drawing.Point(7, 57)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 13)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "sp build:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(7, 40)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 13)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "api version:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label3
-        '
-        Me.Label3.Location = New System.Drawing.Point(6, 23)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 13)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "api:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'cmbLinks
         '
         Me.cmbLinks.FormattingEnabled = True
@@ -202,22 +99,93 @@ Partial Class Form1
         Me.cmbLinks.TabIndex = 9
         Me.cmbLinks.Visible = False
         '
-        'Panel1
+        'lblEndpoints
         '
-        Me.Panel1.Controls.Add(Me.RichTextBox1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 130)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(776, 460)
-        Me.Panel1.TabIndex = 11
+        Me.lblEndpoints.AutoSize = True
+        Me.lblEndpoints.Location = New System.Drawing.Point(299, 9)
+        Me.lblEndpoints.Name = "lblEndpoints"
+        Me.lblEndpoints.Size = New System.Drawing.Size(99, 13)
+        Me.lblEndpoints.TabIndex = 12
+        Me.lblEndpoints.Text = "Available endpoints"
+        Me.lblEndpoints.Visible = False
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 152)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(590, 24)
+        Me.StatusStrip1.TabIndex = 13
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 19)
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ToolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ToolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(30, 19)
+        Me.ToolStripStatusLabel2.Text = "idle"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ToolStripStatusLabel3.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(123, 19)
+        Me.ToolStripStatusLabel3.Text = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Visible = False
+        '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ToolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(123, 19)
+        Me.ToolStripStatusLabel4.Text = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Visible = False
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ToolStripStatusLabel5.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(123, 19)
+        Me.ToolStripStatusLabel5.Text = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Visible = False
+        '
+        'ToolStripStatusLabel6
+        '
+        Me.ToolStripStatusLabel6.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ToolStripStatusLabel6.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(123, 19)
+        Me.ToolStripStatusLabel6.Text = "ToolStripStatusLabel6"
+        Me.ToolStripStatusLabel6.Visible = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(799, 599)
-        Me.Controls.Add(Me.Panel1)
+        Me.ClientSize = New System.Drawing.Size(590, 176)
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.lblEndpoints)
         Me.Controls.Add(Me.cmbLinks)
-        Me.Controls.Add(Me.apiInfoGbox)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.tokenTextBox)
         Me.Controls.Add(Me.Label2)
@@ -226,29 +194,25 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBox2)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        Me.apiInfoGbox.ResumeLayout(False)
-        Me.apiInfoGbox.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents urlTextBox As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents tokenTextBox As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents apiInfoGbox As GroupBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents lblSpVersion As Label
-    Friend WithEvents lblSpBuild As Label
-    Friend WithEvents lblApiVersion As Label
-    Friend WithEvents lblApi As Label
     Friend WithEvents cmbLinks As ComboBox
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents lblEndpoints As Label
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel6 As ToolStripStatusLabel
 End Class
