@@ -27,7 +27,7 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tokenTextBox = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.buttonTry = New System.Windows.Forms.Button()
         Me.cmbLinks = New System.Windows.Forms.ComboBox()
         Me.lblEndpoints = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -37,13 +37,19 @@ Partial Class Form1
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel6 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.progBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.cmbHistory = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.radioGet = New System.Windows.Forms.RadioButton()
+        Me.radioPost = New System.Windows.Forms.RadioButton()
+        Me.buttonResetBase = New System.Windows.Forms.Button()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox2
         '
         Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(12, 93)
+        Me.TextBox2.Location = New System.Drawing.Point(394, 72)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(44, 20)
         Me.TextBox2.TabIndex = 1
@@ -51,15 +57,15 @@ Partial Class Form1
         '
         'urlTextBox
         '
-        Me.urlTextBox.Location = New System.Drawing.Point(12, 28)
+        Me.urlTextBox.Location = New System.Drawing.Point(12, 72)
         Me.urlTextBox.Name = "urlTextBox"
-        Me.urlTextBox.Size = New System.Drawing.Size(270, 20)
+        Me.urlTextBox.Size = New System.Drawing.Size(359, 20)
         Me.urlTextBox.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 12)
+        Me.Label1.Location = New System.Drawing.Point(12, 56)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 13)
         Me.Label1.TabIndex = 4
@@ -68,7 +74,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 51)
+        Me.Label2.Location = New System.Drawing.Point(12, 95)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(95, 13)
         Me.Label2.TabIndex = 5
@@ -76,24 +82,24 @@ Partial Class Form1
         '
         'tokenTextBox
         '
-        Me.tokenTextBox.Location = New System.Drawing.Point(12, 67)
+        Me.tokenTextBox.Location = New System.Drawing.Point(12, 111)
         Me.tokenTextBox.Name = "tokenTextBox"
-        Me.tokenTextBox.Size = New System.Drawing.Size(270, 20)
+        Me.tokenTextBox.Size = New System.Drawing.Size(359, 20)
         Me.tokenTextBox.TabIndex = 6
         '
-        'Button1
+        'buttonTry
         '
-        Me.Button1.Location = New System.Drawing.Point(207, 93)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Try"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.buttonTry.Location = New System.Drawing.Point(296, 137)
+        Me.buttonTry.Name = "buttonTry"
+        Me.buttonTry.Size = New System.Drawing.Size(75, 23)
+        Me.buttonTry.TabIndex = 1
+        Me.buttonTry.Text = "Try"
+        Me.buttonTry.UseVisualStyleBackColor = True
         '
         'cmbLinks
         '
         Me.cmbLinks.FormattingEnabled = True
-        Me.cmbLinks.Location = New System.Drawing.Point(302, 28)
+        Me.cmbLinks.Location = New System.Drawing.Point(12, 187)
         Me.cmbLinks.Name = "cmbLinks"
         Me.cmbLinks.Size = New System.Drawing.Size(276, 21)
         Me.cmbLinks.TabIndex = 9
@@ -102,7 +108,7 @@ Partial Class Form1
         'lblEndpoints
         '
         Me.lblEndpoints.AutoSize = True
-        Me.lblEndpoints.Location = New System.Drawing.Point(299, 9)
+        Me.lblEndpoints.Location = New System.Drawing.Point(9, 171)
         Me.lblEndpoints.Name = "lblEndpoints"
         Me.lblEndpoints.Size = New System.Drawing.Size(99, 13)
         Me.lblEndpoints.TabIndex = 12
@@ -111,10 +117,10 @@ Partial Class Form1
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 152)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6, Me.progBar1})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 255)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(590, 24)
+        Me.StatusStrip1.Size = New System.Drawing.Size(456, 24)
         Me.StatusStrip1.TabIndex = 13
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -178,15 +184,77 @@ Partial Class Form1
         Me.ToolStripStatusLabel6.Text = "ToolStripStatusLabel6"
         Me.ToolStripStatusLabel6.Visible = False
         '
+        'progBar1
+        '
+        Me.progBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.progBar1.Name = "progBar1"
+        Me.progBar1.Size = New System.Drawing.Size(100, 18)
+        Me.progBar1.Visible = False
+        '
+        'cmbHistory
+        '
+        Me.cmbHistory.FormattingEnabled = True
+        Me.cmbHistory.Location = New System.Drawing.Point(12, 28)
+        Me.cmbHistory.Name = "cmbHistory"
+        Me.cmbHistory.Size = New System.Drawing.Size(426, 21)
+        Me.cmbHistory.TabIndex = 14
+        Me.cmbHistory.Text = "Select to view previously used server pairs..."
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 8)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(134, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Saved Server/Token Pairs"
+        '
+        'radioGet
+        '
+        Me.radioGet.AutoSize = True
+        Me.radioGet.Location = New System.Drawing.Point(315, 190)
+        Me.radioGet.Name = "radioGet"
+        Me.radioGet.Size = New System.Drawing.Size(47, 17)
+        Me.radioGet.TabIndex = 16
+        Me.radioGet.TabStop = True
+        Me.radioGet.Text = "GET"
+        Me.radioGet.UseVisualStyleBackColor = True
+        '
+        'radioPost
+        '
+        Me.radioPost.AutoSize = True
+        Me.radioPost.Location = New System.Drawing.Point(368, 191)
+        Me.radioPost.Name = "radioPost"
+        Me.radioPost.Size = New System.Drawing.Size(54, 17)
+        Me.radioPost.TabIndex = 17
+        Me.radioPost.TabStop = True
+        Me.radioPost.Text = "POST"
+        Me.radioPost.UseVisualStyleBackColor = True
+        '
+        'buttonResetBase
+        '
+        Me.buttonResetBase.Location = New System.Drawing.Point(215, 137)
+        Me.buttonResetBase.Name = "buttonResetBase"
+        Me.buttonResetBase.Size = New System.Drawing.Size(75, 23)
+        Me.buttonResetBase.TabIndex = 18
+        Me.buttonResetBase.Text = "Reset"
+        Me.buttonResetBase.UseVisualStyleBackColor = True
+        Me.buttonResetBase.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(590, 176)
+        Me.ClientSize = New System.Drawing.Size(456, 279)
+        Me.Controls.Add(Me.buttonResetBase)
+        Me.Controls.Add(Me.radioPost)
+        Me.Controls.Add(Me.radioGet)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.cmbHistory)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.lblEndpoints)
         Me.Controls.Add(Me.cmbLinks)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.buttonTry)
         Me.Controls.Add(Me.tokenTextBox)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -205,7 +273,7 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents tokenTextBox As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents buttonTry As Button
     Friend WithEvents cmbLinks As ComboBox
     Friend WithEvents lblEndpoints As Label
     Friend WithEvents StatusStrip1 As StatusStrip
@@ -215,4 +283,10 @@ Partial Class Form1
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel6 As ToolStripStatusLabel
+    Friend WithEvents progBar1 As ToolStripProgressBar
+    Friend WithEvents cmbHistory As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents radioGet As RadioButton
+    Friend WithEvents radioPost As RadioButton
+    Friend WithEvents buttonResetBase As Button
 End Class

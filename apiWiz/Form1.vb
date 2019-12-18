@@ -14,13 +14,16 @@ Public Class Form1
                              cert As System.Security.Cryptography.X509Certificates.X509Certificate,
                              chain As System.Security.Cryptography.X509Certificates.X509Chain,
                              sslerror As System.Net.Security.SslPolicyErrors) True
+        Dim pairHistory As Dictionary(Of String, String) = HistoryToDict()
+        For Each item In pairHistory
+            cmbHistory.Items.Add(item.Value + " | " + item.Key)
+        Next
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles buttonTry.Click
         cmbLinks.Items.Clear()
         Try
-            Dim request As WebRequest =
-            WebRequest.Create(urlTextBox.Text)
+            Dim request As WebRequest = WebRequest.Create(urlTextBox.Text)
             request.Headers.Set("X-Arbux-APIToken", tokenTextBox.Text)
             Dim response As WebResponse = request.GetResponse()
             TextBox2.Text = CType(response, HttpWebResponse).StatusDescription
@@ -58,4 +61,35 @@ Public Class Form1
     Private Sub cmbLinks_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbLinks.SelectedIndexChanged
         urlTextBox.Text = endpointDict(cmbLinks.SelectedItem)
     End Sub
+
+    Private Sub cmbHistory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbHistory.SelectedIndexChanged
+        Dim selection = cmbHistory.SelectedItem
+        Dim selArray() As String = Split(selection, " | ")
+        urlTextBox.Text = selArray(0)
+        tokenTextBox.Text = selArray(1)
+    End Sub
+
+
+
+    '=========
+    'FUNCTIONS
+    '=========
+
+    'Get historical server/api token pairs from hash.dat file
+    'and return a dictionary
+    Private Function HistoryToDict()
+        Dim serverPair As New Dictionary(Of String, String)
+        Dim FILE_NAME As String = "hash.dat"
+        If IO.File.Exists(FILE_NAME) Then
+            Using sr As New IO.StreamReader(FILE_NAME)
+                While Not sr.EndOfStream
+                    serverPair.Add(sr.ReadLine, sr.ReadLine)
+                End While
+            End Using
+        Else
+            MsgBox("Error loading history items!")
+        End If
+        Return serverPair
+    End Function
+
 End Class
