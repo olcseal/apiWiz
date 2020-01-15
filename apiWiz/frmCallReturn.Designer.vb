@@ -27,19 +27,25 @@ Partial Class frmCallReturn
         '
         'rtbReturn
         '
+        Me.rtbReturn.BackColor = System.Drawing.SystemColors.Window
         Me.rtbReturn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtbReturn.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rtbReturn.ForeColor = System.Drawing.SystemColors.WindowText
         Me.rtbReturn.Location = New System.Drawing.Point(0, 0)
+        Me.rtbReturn.Margin = New System.Windows.Forms.Padding(4)
         Me.rtbReturn.Name = "rtbReturn"
-        Me.rtbReturn.Size = New System.Drawing.Size(800, 450)
+        Me.rtbReturn.ReadOnly = True
+        Me.rtbReturn.Size = New System.Drawing.Size(1067, 554)
         Me.rtbReturn.TabIndex = 0
         Me.rtbReturn.Text = "" & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'frmCallReturn
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.rtbReturn)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmCallReturn"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Call return"
